@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class Window extends JFrame {
 
-    Panels p;
+    private Panels p;
 
 
     public Window() {

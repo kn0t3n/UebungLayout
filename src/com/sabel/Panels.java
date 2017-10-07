@@ -15,6 +15,7 @@ public class Panels extends JFrame {
 
         initComponents();
         initEvents();
+
     }
 
     private void initComponents() {
