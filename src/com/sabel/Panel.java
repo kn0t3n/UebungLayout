@@ -47,14 +47,6 @@ public class Panel extends JFrame {
         jbBlau = new JButton("Blau");
         jbRot = new JButton("Rot");
 
-        rbBlau.setSelected(true);
-        rbGruen.setSelected(true);
-        rbRot.setSelected(true);
-
-        jbBlau.setSelected(true);
-        jbGruen.setSelected(true);
-        jbRot.setSelected(true);
-
         bg.add(rbBlau);
         bg.add(rbGruen);
         bg.add(rbRot);
