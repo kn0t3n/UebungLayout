@@ -28,4 +28,8 @@ public class Window extends JFrame {
         this.add(p.getjPS(),BorderLayout.SOUTH);
         this.add(p.getjPC());
     }
+
+    public JPanel getCenterPanel(){
+        return p.getjPC();
+    }
 }
