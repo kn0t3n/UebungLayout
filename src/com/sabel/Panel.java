@@ -83,7 +83,6 @@ public class Panel extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 jPC.setBackground(Color.BLUE);
-                jbBlau.setSelected(true);
                 rbBlau.setSelected(true);
             }
         });
@@ -92,14 +91,12 @@ public class Panel extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 jPC.setBackground(Color.BLUE);
                 jbBlau.setSelected(true);
-                rbBlau.setSelected(true);
             }
         });
         jbGruen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 jPC.setBackground(Color.GREEN);
-                jbGruen.setSelected(true);
                 rbGruen.setSelected(true);
             }
         });
@@ -108,14 +105,12 @@ public class Panel extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 jPC.setBackground(Color.GREEN);
                 jbGruen.setSelected(true);
-                rbGruen.setSelected(true);
             }
         });
         jbRot.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 jPC.setBackground(Color.RED);
-                jbRot.setSelected(true);
                 rbRot.setSelected(true);
             }
         });
@@ -124,7 +119,6 @@ public class Panel extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 jPC.setBackground(Color.RED);
                 jbRot.setSelected(true);
-                rbRot.setSelected(true);
             }
         });
     }
