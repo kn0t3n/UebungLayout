@@ -7,35 +7,38 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-
 public class Panel extends JFrame {
 
-    JPanel jPW, jPC, jPS;
-    ButtonGroup bg;
-    JRadioButton rbGruen;
-    JRadioButton rbBlau;
-    JRadioButton rbRot;
-    JButton jbGruen;
-    JButton jbBlau;
-    JButton jbRot;
+    private JPanel jPW, jPC, jPS, jPN;
+    private ButtonGroup bg;
+    private JRadioButton rbGruen, rbBlau, rbRot;
+    private JButton jbGruen, jbBlau, jbRot;
+    private JComboBox<String> jCB;
+    private String[] comboStrings;
 
 
     public Panel() {
 
+        comboStrings = new String[]{"Blau", "Gruen", "Rot"};
+        jCB = new JComboBox<>(comboStrings);
+
         this.setTitle("Uebung Layout");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(300, 200);
+//        this.setSize(300, 200);
 
         this.initComponents();
         this.initEvents();
 
+        this.pack();
+
         this.setVisible(true);
     }
 
-    public void initComponents() {
+    private void initComponents() {
         this.jPW = new JPanel();
         this.jPC = new JPanel();
         this.jPS = new JPanel();
+        this.jPN = new JPanel();
 
         bg = new ButtonGroup();
 
@@ -54,7 +57,7 @@ public class Panel extends JFrame {
         bg.add(jbGruen);
         bg.add(jbRot);
 
-        jPW.setLayout(new BoxLayout(jPW,BoxLayout.Y_AXIS));
+        jPW.setLayout(new BoxLayout(jPW, BoxLayout.Y_AXIS));
 
         jPW.add(rbBlau);
         jPW.add(rbGruen);
@@ -64,55 +67,88 @@ public class Panel extends JFrame {
         jPS.add(jbGruen);
         jPS.add(jbRot);
 
+        jPN.add(jCB);
+
         this.add(jPC);
+        this.add(jPN, BorderLayout.NORTH);
         this.add(jPW, BorderLayout.WEST);
         this.add(jPS, BorderLayout.SOUTH);
 
+        blue();
+
     }
 
-    private void initEvents(){
+    private void initEvents() {
+        jCB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String s = (String)jCB.getSelectedItem();
+                if (s == "Blau"){
+                    blue();
+                }
+                if (s == "Gruen"){
+                    green();
+                }
+                if (s == "Rot"){
+                    red();
+                }
+            }
+        });
+
         jbBlau.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jPC.setBackground(Color.BLUE);
-                rbBlau.setSelected(true);
+                blue();
             }
         });
         rbBlau.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jPC.setBackground(Color.BLUE);
-                jbBlau.setSelected(true);
+                blue();
             }
         });
         jbGruen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jPC.setBackground(Color.GREEN);
-                rbGruen.setSelected(true);
+                green();
             }
         });
         rbGruen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jPC.setBackground(Color.GREEN);
-                jbGruen.setSelected(true);
+                green();
             }
         });
         jbRot.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jPC.setBackground(Color.RED);
-                rbRot.setSelected(true);
+                red();
             }
         });
         rbRot.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jPC.setBackground(Color.RED);
-                jbRot.setSelected(true);
+                red();
             }
         });
+    }
+
+    private void blue() {
+        jPC.setBackground(Color.BLUE);
+        rbBlau.setSelected(true);
+        jCB.setSelectedItem("Blau");
+    }
+
+    private void green() {
+        jPC.setBackground(Color.GREEN);
+        rbGruen.setSelected(true);
+        jCB.setSelectedItem("Gruen");
+    }
+
+    private void red() {
+        jPC.setBackground(Color.RED);
+        rbRot.setSelected(true);
+        jCB.setSelectedItem("Rot");
     }
 
 

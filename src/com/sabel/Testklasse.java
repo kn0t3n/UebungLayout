@@ -4,8 +4,8 @@ public class Testklasse {
 
     public static void main(String[] args) {
 
-//        Panel p = new Panel();
+        Panel p = new Panel();
 
-        Window w = new Window();
+//        Window w = new Window();
     }
 }
