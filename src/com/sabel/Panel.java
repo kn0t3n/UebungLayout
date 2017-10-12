@@ -19,9 +19,6 @@ public class Panel extends JFrame {
 
     public Panel() {
 
-        comboStrings = new String[]{"Blau", "Gruen", "Rot"};
-        jCB = new JComboBox<>(comboStrings);
-
         this.setTitle("Uebung Layout");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        this.setSize(300, 200);
@@ -39,6 +36,9 @@ public class Panel extends JFrame {
         this.jPC = new JPanel();
         this.jPS = new JPanel();
         this.jPN = new JPanel();
+
+        comboStrings = new String[]{"Blau", "Gruen", "Rot"};
+        jCB = new JComboBox<>(comboStrings);
 
         bg = new ButtonGroup();
 
@@ -82,15 +82,17 @@ public class Panel extends JFrame {
         jCB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String s = (String)jCB.getSelectedItem();
-                if (s == "Blau"){
-                    blue();
-                }
-                if (s == "Gruen"){
-                    green();
-                }
-                if (s == "Rot"){
-                    red();
+
+                switch ((String) jCB.getSelectedItem()) {
+                    case "Blau":
+                        blue();
+                        break;
+                    case "Gruen":
+                        green();
+                        break;
+                    case "Rot":
+                        red();
+                        break;
                 }
             }
         });
